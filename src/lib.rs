@@ -292,7 +292,7 @@ functions:
 
 pub static XKBCOMMON_OPTION: Lazy<Option<XkbCommon>> = Lazy::new(|| {
     open_with_sonames(
-        &["libxkbcommon.so", "libxkbcommon.so.0"],
+        &["libxkbcommon.so", "libxkbcommon.so.0", "libxkbcommon.dylib", "libxkbcommon.0.dylib"],
         None,
         |name| unsafe { XkbCommon::open(name) },
     )
@@ -304,7 +304,7 @@ pub static XKBCOMMON_HANDLE: Lazy<&'static XkbCommon> = Lazy::new(|| {
 });
 pub static XKBCOMMON_COMPOSE_OPTION: Lazy<Option<XkbCommonCompose>> = Lazy::new(|| {
     open_with_sonames(
-        &["libxkbcommon.so", "libxkbcommon.so.0"],
+        &["libxkbcommon.so", "libxkbcommon.so.0", "libxkbcommon.dylib", "libxkbcommon.0.dylib"],
         Some("compose"),
         |name| unsafe { XkbCommonCompose::open(name) },
     )

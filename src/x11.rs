@@ -44,7 +44,7 @@ functions:
 
 pub static XKBCOMMON_X11_OPTION: Lazy<Option<XkbCommonX11>> = Lazy::new(|| {
     open_with_sonames(
-        &["libxkbcommon-x11.so", "libxkbcommon-x11.so.0"],
+        &["libxkbcommon-x11.so", "libxkbcommon-x11.so.0", "libxkbcommon-x11.dylib", "libxkbcommon-x11.0.dylib"],
         None,
         |name| unsafe { XkbCommonX11::open(name) },
     )
